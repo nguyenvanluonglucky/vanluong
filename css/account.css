@@ -1,0 +1,296 @@
+body{
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+}
+section{
+    height: 600px;
+    background: url("../img/login/bg-singup.jpg");
+}
+.animationall,
+.all{
+    width: 460px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.all-frame-log-in{
+    background: #282828;
+    height: 530px;
+    width: 400px;
+    box-shadow: 0px 0px 20px rgb(184, 184, 184);
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    z-index: 1;
+
+}
+.all-frame-sign-up{
+    width: 400px;
+    height: 530px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    margin-top: 0px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgb(7, 7, 7);
+    position: absolute;
+    top: 30px;
+    right: 12px;
+    z-index: 2;
+}
+.all-frame-sign-up h1{
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.input-sign{
+    width: 80%;
+    height: 40px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    font-size: 20px;
+    position: relative;
+    padding: 10px 0px;
+    margin-left: 20px;
+}
+.input-sign input[type = text]{
+    width: 80%;
+    height: 36px;
+    outline: none;
+    border: none;
+    float: right;  
+    position: absolute;
+    top: 1px;
+    right: 20px;
+}
+
+
+.input-sign .icon-sign-up{
+    float: left;
+    margin-top: -4px;
+    
+}
+.all-frame-sign-up button{
+    width: 50%;
+    height: 50px;
+    background: #282828;
+    margin: 20px 20%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#sign-up-compele{
+    font-size: 30px;
+    text-align: center;
+    padding: 10%;
+    text-transform: uppercase;
+    display: none;
+}
+#sign-up-compele button{
+    width: 300px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    outline:  none;
+    border: none;
+}
+.err-input-sign-up{
+    width: fit-content;
+    height: 24px;
+    padding: 1px 5px;
+    background-color: rgb(49, 49, 49);
+    position: absolute;
+    color: white;
+    font-size: 14px;
+}
+.err-input-sign-up:before{
+    content: "";
+    position: absolute;
+    top: 40%;                         
+    margin-top: -6px;                
+    left:-14px;
+    border: solid 7px transparent;
+    border-right-color: rgb(46, 46, 46);
+    z-index: 1;    
+}
+.icon-err{
+    color:  red;
+    float: right;
+}
+
+
+/* login */
+.frame-input input{
+    width: 260px;
+    height: 60px;
+    outline: none;
+    border: none;
+    margin-top: 30px;
+    background-color: rgba(255, 0, 0, 0);
+    font-weight: bold;
+    padding-left: 10px;
+    color: white;
+}
+.frame-input input::placeholder {
+    color: white;
+}
+.frame-input{
+    width: 300px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+.all-frame-log-in button{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    color: rgb(180, 180, 180);
+    background-color: #282828;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+#err-login{
+    color: white;
+}
+.option-login{
+    width: 70%;
+    height: 40px;
+    background-color: #282828;
+    margin-top: 30px;
+    margin: 80px 15%;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+.option-login button{
+    float: left;
+    width: 50%;
+    height: 100%;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+.option-login button:hover{
+    background-color: none;
+}
+.option-login #option-login{
+    background-color:white;
+    color: black;
+}
+.animationall{
+    animation: animateSignAndLog 1.5s;
+}
+@keyframes animateSignAndLog{
+    0%{
+        width: 500px;
+    }
+    50%{
+        width: 1000px;
+    }
+    90%{
+        width: 500px;
+    }
+
+}
+
+.option-sign-up{
+    width: 70%;
+    height: 40px;
+    background-color: #282828;
+    margin-top: 30px;
+    margin: 30px 15%;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    border: 1px solid rgb(0, 0, 0);
+}
+.option-sign-up button{
+    float: left;
+    width: 50%;
+    height: 100%;
+    margin: 0px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.option-sign-up #option-sign-up{
+    background: white;
+    color: black;
+}
+.option-sign-up #option-login{
+    background: #282828;
+    color: rgba(255, 255, 255, 0.795);
+}
+.buttonLogin{
+    background: white !important;
+    color: black !important;
+}
+.notinationOK{
+    font-size: 60px;
+    text-align: center;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10%;
+    z-index: 5;
+    color: black;
+    opacity: 0.2;
+    animation: animate-notification 2s;
+}
+@keyframes animate-notification{
+    0%{
+        top: 50%;
+    }
+    50%{
+        top: 40%;
+        opacity: 0.9;
+    }
+    100%{
+        top: 30%;
+        opacity: 0.6;
+    }
+}
+
+
+.err-input-login{
+    width: fit-content;
+    height: 40px;
+    padding: 5px 5px;
+    background-color: rgb(31, 31, 31);
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-size: 18px;
+}
+.err-input-login:before{
+    content: "";
+    position: absolute;
+    top: 40%;                         
+    margin-top: -6px;                
+    left:-14px;
+    border: solid 7px transparent;
+    border-right-color: rgb(31, 31, 31);
+    z-index: 1;    
+}
+::-webkit-scrollbar { 
+    display: none;
+}
+#khung-menu{
+    background: rgba(255, 255, 255, 0.719);
+    /* background-color: white; */
+}

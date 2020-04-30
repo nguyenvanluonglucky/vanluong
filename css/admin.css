@@ -1,0 +1,299 @@
+.all{
+    width: 100%;
+}
+
+section{
+    width: 100%;
+    position: relative;
+}
+.all{
+    position: fixed;
+    top: 5vh;
+    left: 5vmax;
+    background-color: #86a6df;
+    width: 90vmax;
+    height: 90vh;
+    border-radius: 30px;
+    box-shadow: 0px 0px 30px rgb(212, 212, 212);
+}
+.left{
+    position: absolute;
+    padding-top: 30px;
+    top: 5vh;
+    left: 2%;
+    width: 15%;
+    height: 80vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    /* box-shadow: 0px 0px 20px rgb(141, 141, 141); */
+}
+.back-home{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 30px;
+}
+@media screen and (max-width : 1150px){
+    .option label{
+        display: none;
+    }
+    .option{
+        text-align: center;
+    }
+}
+.right{
+    position: absolute;
+    top: 5%;
+    width: 80%;
+    height: 95%;
+    right: 2%;
+    overflow-y: auto;
+    float: left;
+}
+.right::-webkit-scrollbar{
+    background-color: rgb(255, 235, 245);
+}
+.right::-webkit-scrollbar-thumb{
+    background-color: rgb(16, 255, 76);
+    border-radius: 10px;
+}
+.time{
+    display: flex;
+    font-size: 30px;
+    text-align: center;
+    padding: 0px 20%;
+}
+.option{
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    padding: 10px;
+    color: black    ;
+    cursor: pointer;
+}
+.left .active{
+    background-color: #5068a9;
+    cursor: pointer;
+    border-radius: 30px 0px 0px 30px;
+    color: white;
+}
+.show{
+    width: 100%;
+    float: left;
+    padding: 0px 10px;
+}
+#edit-product{
+    z-index: 3;
+}
+
+#add-product{
+    font-size: 50px;
+    padding: 40px;
+    text-align: center;
+    color: black;
+}
+
+#all-edit-product{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: repeat(1, 150px);
+}
+
+.frames-product{
+    width: 240px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    margin: 1%;
+    float: left;
+    border-radius: 10px;
+    margin: 10px;
+    position: relative;
+}
+.fram-img-product{
+    margin-top: 25px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    background-image: url("https://24hstore.vn/images/products/2019/12/18/large/xiaomi-redmi-note-8-3.jpg");
+    background-size: 100%;
+    border-radius: 10px 10px 0px 0px;
+    float: left;
+}
+.content-product{
+    width: 130px;
+    height: 150px;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+.name-product{
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 70px;
+    width: 100%;
+    float: left;
+}
+.money-product{
+    font-size: 12px;
+    text-decoration: line-through;
+    height: 10px;
+    width: 100%;
+    color: rgb(138, 138, 138);
+    float: left;
+
+}
+.sale-product{
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    height: 20px;
+    width: 100%;
+    float: left;
+}
+.frames-product:hover .edit-products{
+    transition: 1s;
+    display: block;
+}
+.edit-products{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #324e7b;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    border: 1px solid white;
+    outline: none;
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    box-shadow: 0px 0px 10px rgb(143, 143, 143);
+    cursor: pointer;
+    display: none;
+}
+#header-frame-edit{
+    text-transform: uppercase;
+    font-size: 20px;
+}
+#show-img-product,
+#frame-edit-add{
+    position: absolute;
+    bottom: 20px;
+    right: 0px;
+    z-index: 3;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgb(63, 63, 63);
+}
+#background-edit{
+    background-color: none;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    height: 440px;
+    width: 330px;
+    z-index: 2;
+    display: none;
+    transition: 1s;
+}
+
+@keyframes blurSection{
+    from{
+        filter: blur(0px);
+    }
+    to{
+        filter: blur(5px);
+    }
+}
+#show-img-product{
+    background: #5068a9;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 300px;
+    height: 400px;
+    padding: 25px 50px;
+}
+#show-img-product .frame-check-img{
+    width: 150px;
+    height: 150px;
+    background-image: url(../img/login/bg-err-img.jpg);
+    background-size: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.frame-check-img img{
+    width: 150px;
+    border-radius: 10px;
+}
+#frame-edit-add h1{
+    text-align: center;
+    color: black;
+}
+.input-info-product{
+    width: 90%;
+    height: 40px;
+    float: left;
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+}
+.input-info-product input{
+    width: 90%;
+    height: 38px;
+    outline: none;
+    border: none;
+    background: none;
+    float: right;
+}
+.input-info-product select{
+    outline: none;
+    height: 30px;
+    width: 200px;
+    border-bottom: none;
+   margin-top: -10px;
+}
+option{
+    outline: none;
+    transition: 3s;
+}
+.input-info-product svg{
+    font-size: 20px;
+    margin-top: 10px;
+}
+.ERROR{
+    float: left;
+}
+#cancel-ok{
+    width: 100%;
+    height: 50px;
+    float: left;
+}
+#cancel-ok button{
+    width: 100px;
+    height: 40px;
+    float: left;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #5068a9 0%, #86a6df 87%);
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#cancel{
+    background: white !important;
+    border: 1px solid #324e7b !important;
+    color: black !important;
+}
+.Btdelete{
+    margin-left: 80px !important;
+}

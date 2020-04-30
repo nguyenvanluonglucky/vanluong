@@ -1,0 +1,365 @@
+*{
+    padding : 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+body{
+    width: 1550px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0 auto;
+}
+.up-top{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    box-shadow: 0px 0px 10px rgb(80, 80, 80);
+    background-color: white;
+}
+.up-top button{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: none;
+    position: relative;
+}
+.up-top button:hover{
+    color :white;
+}
+.up-top button::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    width: 0%;
+    height: 0%;
+    z-index: -1;
+    background-color:#f51167 ;
+    transition: 1s;
+}
+.up-top button:hover::before{
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width : 1550px){
+    body{
+        width: 100%;
+    }
+}
+header{
+    width: 100%;
+}
+.header-top{
+    height: 75px;
+    width: 1200px;
+    margin: 0 auto; 
+    padding: 20px 0px;
+}
+
+.logo{
+    width: 320px;
+    height: 60px;
+    float: left;
+    margin: 0 auto; 
+}
+.search{
+    width: 500px;
+    height: 75px;
+    display: flex;
+    float: left;
+    margin: 0 auto; 
+}
+.search input[type=text]{
+    width: 440px;
+    height: 45px;
+    border-radius: 20px 0px 0px 20px;
+    border : none;
+    outline: none;
+    background-color: #f0f0f0;
+    padding-left: 10px;
+}
+.search button{
+    width: 40px;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 0px 20px 20px 0px;
+    background: #f0f0f0;
+    padding-right: 5px;
+    cursor: pointer;
+}
+.sign-up-login{
+    width: 200px;
+    height: 75px;
+    display: flex;
+    padding: 10px 30px;
+    float: left;
+    margin: 0 auto; 
+
+}
+.cart a,
+.sign-up-login a{
+    color: black;
+}
+.sign-up-login svg,
+.sign-up-login p{
+    float: left;
+}
+.icon-ac-logout{
+    display: none;
+}
+.cart{
+    width: 150px;
+    height: 75px;
+    padding: 10px 10px;
+    float: left;
+    margin: 0 auto; 
+    position: relative;
+}
+.cart svg,
+.cart p{
+    float: left;
+}
+#sl-on-menu{
+    width: 15px;
+    height: 15px;
+    /* border: 1px solid black; */
+    box-shadow: 0px 0px 5px rgb(146, 146, 146);
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    top: 0px;
+    left: 0px;
+    color: red;
+    padding: 2px;
+}
+@media screen and (max-width : 1190px){
+    .header-top{
+        width: 100%;
+        height: 225px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .logo{
+        width: 100%;
+        height: 60px;
+    }
+    .search{
+        width: 100%;
+        height: 75px;
+    }
+    .sign-up-login{
+        width: 50%;
+        height: 75px;
+    }
+    .cart{
+        width: 50%;
+        height: 75px;
+    }
+}
+
+.full-container{
+    width: 100%;
+    min-height: 50px;
+    background-color: #282828;
+}
+@media screen and (max-width : 732px){
+    .full-container{
+        width: 100%;
+        min-height: 100px;
+        background-color: #282828;
+    }
+}
+.menu{
+    width: 1200px;
+    min-height: 50px;
+    margin-top: 20px;
+}
+@media screen and (max-width : 1200px){
+    .menu{
+        width: 100%;
+    }
+}
+.menu >ul >li{
+    list-style: none;
+    float: left;
+    padding: 15px 30px;
+    position: relative;
+}
+.menu >ul li a{
+    color: white;
+}
+.menu >ul li:hover >a {
+    color: #ec105a;
+    transition: 0.5s;
+}
+.menu >ul li:hover .sub-menu{
+    display: block;
+}
+.menu >ul>.li-of-sub-menu::before{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50px;
+    z-index: 1;
+    border: 0px solid transparent;
+    border-bottom : 16px solid white;
+    
+}
+.menu >ul>.li-of-sub-menu:hover::before{
+    border: 18px solid transparent;
+    border-bottom : 16px solid white;
+}
+.sub-menu{
+    min-width: 200px;
+    min-height: 220px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 10px;
+    margin-top: 17px;
+    position: absolute;
+    z-index: 4;
+    display: none;
+    box-shadow: 0px 0px 5px rgb(156, 156, 156);
+}
+.sub-menu2{
+    width: 500px;
+}
+.sub-menu li{
+    padding: 10px 0px;
+    list-style: inside;
+    border-bottom: 1px solid #ec105a;
+}
+.sub-menu ul li a{
+    color: #282828;
+    padding:20px 0px;
+}
+footer{
+    width: 100%;
+    min-height: 500px;
+    float: left;
+    background-color: #282828;
+}
+.footer{
+    width: 100%;
+}
+.logo-footer{
+    text-align: center;
+    padding: 50px;
+    width: 100%;
+    height: 100px;
+}
+.info-footer{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(1, 300px);
+}
+.info{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.info h2{
+    text-align: left;
+    height: 30px;
+    width: 100%;
+    color: white;
+    margin-bottom: 20px;
+}
+.content-introduce {
+    color: #8f8f8f;
+}
+.content-introduce:hover{
+    color : white;
+}
+.content-introduce li a{
+    color: #8f8f8f;
+}
+.content-introduce li{
+    list-style-type: none;
+    position: relative;
+    margin-left: 10px;
+    padding: 3px 0px;
+}
+.content-introduce ul li a:after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 5px;
+    left: -10px;
+    top: 6px;
+    border: 1px solid #ec105a;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+.content-introduce ul li:hover a{
+    color: white;
+}
+.content-introduce ul li:hover a:after{
+    width: 0px;
+    height: 0px;
+    border: 4px solid #ec105a;
+}
+.blog{
+    width: 100%;
+    height: 50%;
+}
+.frame-img-blog{
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.content-blog{
+    width: 200px;
+    height: 100%;
+}
+.content-blog h3{
+    text-transform: uppercase;
+    color: #717171;
+    font-size: 18px;
+}
+.content-blog p{
+    color: #ec105a;
+    cursor: pointer;
+    padding: 10px 0px;
+}
+.info-other{
+    color: #717171;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    color:  #ec105a ;
+}
+.info-other p{
+    padding: 0px 20px;
+    color: #717171;
+}
+.social-footer{
+    margin-top: 50px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    padding: 50px ;
+    border-top: 3px solid #414141;
+    
+}
+.social-footer svg{
+    font-size: 40px;
+    margin: 20px;
+    transition: 0.8s color;
+    cursor: pointer;
+}
+.social-footer svg:hover{
+    color : #ec105a;
+}

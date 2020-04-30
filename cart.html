@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <script src="Js/font-all.js"></script>
+    <link rel="stylesheet" href="css/menu-footer.css">
+    
+    <title>GIỎ HÀNG</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <a href="index.html">
+                <div class="logo">
+                    <img src="img/home/logo.png" alt="">
+                </div>
+            </a>
+            <div class="search">
+                <input type="text" placeholder="search....">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="sign-up-login">
+                <i class="fas fa-sign-out-alt" id="icon-ac-logout" onclick="logout()"></i>
+                <a href="account.html">
+                    <i class="fas fa-user-circle" id="icon-ac-login"></i>
+                    
+                    <p id="show-user-on-menu">Tài Khoản</p>
+                </a>
+            </div>
+            <div class="cart">
+                <a href="cart.html">
+                    <div class="cart-menu">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div id="sl-on-menu">0</div>
+                    </div>
+                <p>Giỏ Hàng </p>
+                </a>
+            </div>
+        </div>
+        <div class="full-container">
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="li-of-sub-menu">
+                        <a href="#" >Sản Phẩm</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="#">Áo</a></li>
+                                <li><a href="#">Đầm</a></li>
+                                <li><a href="#">Chân Váy</a></li>
+                                <li><a href="#">Quần</a></li>
+                                <li><a href="#">Phụ Kiện</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="li-of-sub-menu">
+                        <a href="#">Giới Thiệu</a>
+                        <div class="sub-menu sub-menu2" >
+                            <h2>Trang Giỏ hàng</h2>
+                            <p>-có tìm kiếm sản phẩm trong khoảng giá ...sản phẩm nào phù hợp sẽ có background là màu xanh</p>
+                            <p>-có check box để hiển thị sản phẩm muốn mua, mặc định được tích sẵn</p>
+                            <p>-Mọi thông tin sản phẩm được thay đổi khi có thao tác tác động lên chúng</p>
+                            <p>-Phần nhập thông tin khách hàng sẽ được tự điền khi có tài khoản đang đăng nhập</p>
+                            <p>-Mọi thông tin mua hàng phải được điền trước khi mua</p>
+                            <p>-Sau khi mua giỏ hàng sẽ trống toàn bộ</p>
+
+                        </div>
+                    </li>
+                    <li><a href="cart.html">Giỏ Hàng</a></li>
+                    <li><a href="account.html">Đăng Nhập</a></li>
+                    <li><a href="admin.html">Admins</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <section>
+        <div class="all">
+            <div class="frame-all">
+                <div class="filter">
+                    <input type="text" id="filter-start-money" placeholder="Giá từ" oninput="findMoney()">
+                    <input type="text" id="filter-end-money" placeholder="đến" oninput="findMoney()">
+                </div>  
+                <div class="product-cart" id="product-cart">
+
+                    <div class="fram-product">
+                        
+                        <div class="frame-img">
+    
+                        </div>
+    
+                        <div class="frame-name">
+                            <div class="name-product">
+                                iphone X
+                            </div>
+                            <button class="frame-remove" onclick="removeCart()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+    
+                        <div class="frame-number-money">
+                            <div class="frame-money">
+                                <div class="sale">
+                                    3.900.000đ
+                                </div>
+                                <div class="money">
+                                    4.000.000đ
+                                </div>
+                            </div>
+                            <div class="frame-sl">
+                                
+                                <input type="text" onchange="calculate()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-info-customer">
+                    <div class="input-info">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="input-name" placeholder="Nhập tên">
+                    </div>
+                    <div class="ERROR" id="err-name"></div>
+                    <div class="input-info">
+                        <i class="fas fa-phone"></i>
+                        <input type="text" id="input-phone" placeholder="Nhập số điện thoại">
+                    </div>
+                    <div class="ERROR" id="err-phone"></div>
+                    <div class="input-info">
+                        <i class="far fa-envelope"></i>
+                        <input type="text" id="input-email" placeholder="Nhập email">
+                    </div>
+                    <div class="ERROR" id="err-email"></div>
+                    <div class="input-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="input-local" placeholder="Nhập địa chỉ nhận hàng">
+                    </div>
+                    <div class="ERROR" id="err-local"></div>
+                    <div id="sum-cart">Tổng số lượng đơn hàng : 0</div>
+                    <div id="sum-money">Tổng tiền : 0đ</div>
+                    <div class="ERROR" id="err-order" style="font-size: 20px;"></div>
+                    <div>
+                        <button onclick="order()">Xác nhận đơn hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="logo-footer">
+                <img src="img/home/logo-light-footer.png" alt="">
+            </div>
+            <div class="info-footer">
+                <div class="info">
+                    <h2>Giới thiệu</h2>
+                    <div class="content-introduce">
+                        Chúng tôi luôn mang đến cho bạn những sản phẩm với giá và chất lượng tốt nhất,
+                        miễn là bạn thích chúng tôi sẵn sàng phục vụ bạn, với tiêu chí về uy tín và chất lượng 
+                        sản phẩm được đưa lên hàng đầu !!
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Tổng Quan</h2>
+                    <div class="content-introduce">
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Theo dõi đơn hàng</a></li>
+                            <li><a href="#">Đơn hàng trả</a></li>
+                            <li><a href="#">Công việc</a></li>
+                            <li><a href="#">Đang chuyển hàng</a></li>
+                            <li><a href="#">Bài viết</a></li>
+                            <li><a href="#">Đối tác</a></li>
+                            <li><a href="#">Hỗ trợ</a></li>
+                            <li><a href="#">Điều Khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Bài Viết</h2>
+                    <div class="blog">
+                        <div class="frame-img-blog">
+                            <img src="img/home/blog-footer.jpg" alt="">
+                        </div>
+                        <div class="content-blog">
+                            <h3>Phối đồ</h3>
+                            <p>đọc thêm</p>
+                        </div>
+                    </div>
+                    <div class="blog">
+                        <div class="frame-img-blog">
+                            <img src="img/home/blog-footer2.jpg" alt="">
+                        </div>
+                        <div class="content-blog">
+                            <h3>Thịnh hành</h3>
+                            <p>đọc thêm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Thông tin</h2>
+                    <div class="info-other">
+                        <i class="fas fa-home"></i>
+                        <p>FPoly Tây Nguyên</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>27 Nguyễn Tất Thành, TP BMT</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>0393457144</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="far fa-envelope"></i>
+                        <p>luongnvpk01506@fpt.edu.vn</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="social-footer">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-google-plus-g"></i>
+                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fas fa-abacus"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="js/support.js"></script>
+<script src="js/menu.js"></script>
+<script src="Js/outPutProduct.js"></script>
+<script src="Js/cart.js"></script>
+<link rel="stylesheet" href="css/cart.css">
+<script>
+    testLogin();
+</script>
+
+</html>

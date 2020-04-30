@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <script src="Js/font-all.js"></script>  
+    <link rel="stylesheet" href="css/menu-footer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/support.js"></script>
+    <script src="Js/admin.js"></script>
+    <title>ADMIN</title>
+</head>
+
+<body>
+    <div id="background-edit">
+        <div id="show-img-product">
+            <div class="frame-check-img">
+                <img src="" alt="">
+            </div>
+        </div>
+        <div id="frame-edit-add">
+            <h1 id="header-frame-edit">ADD sản phẩm</h1>
+            <!-- tên -->
+            <div class="input-info-product">
+                <i class="fas fa-plus-square"></i>
+                <input type="text" id="input-name" placeholder="Nhập tên sản phẩm">
+            </div>
+            <div class="ERROR" id="err-name"></div>
+
+            <!-- giá -->
+            <div class="input-info-product">
+                <i class="fas fa-dollar-sign"></i>
+                <input type="number" id="input-money" placeholder="Gía sản phẩm" min="0">
+            </div>
+            <div class="ERROR" id="err-money"></div>
+
+            <!-- Phần trăm giảm -->
+            <div class="input-info-product">
+                <i class="fas fa-percent"></i>
+                <input type="number" id="input-sale" placeholder="Phần trăm giảm" min="0" max="100">
+            </div>
+            <div class="ERROR" id="err-sale"></div>
+
+            <!-- link sản phẩm -->
+            <div class="input-info-product">
+                <i class="fas fa-paperclip"></i>
+                <input type="text" id="input-link" placeholder="Link ảnh sản phẩm" oninput="checkIMG(this)">
+            </div>
+            <div class="ERROR" id="err-link"></div>
+            
+            <!-- loại -->
+            <div class="input-info-product">
+                <i class="fas fa-puzzle-piece"></i>
+                <select id="input-type">
+                    <option value="0">Chọn loại sản phẩm</option>
+                    <option value="skirt">Váy</option>
+                    <option value="shirt">Áo</option>
+                    <option value="other">Khác</option>
+                  </select>
+            </div>
+            <div class="ERROR" id="err-type"></div>
+
+            <div id="cancel-ok">
+                <button id="cancel" onclick="hideFrameEdit()">Hủy</button>
+                <div id="ok">
+                    <button>Cập nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="section">
+        <div class="all">
+            <div class="left">
+                <a href="index.html">
+                    <div class="back-home">
+                        <i class="fas fa-home"></i>
+                    </div>
+                </a>
+                <div class="time">
+                    
+                    <div id="hours">16</div>
+                    <div id="second">:</div>
+                    <div id="minute">20</div>
+
+                    <script>
+                        TimeNowAdmin();
+                        function TimeNowAdmin(){
+                            let Now = new Date();
+                            document.querySelector("#hours").innerHTML = Now.getHours();
+                            document.querySelector("#minute").innerHTML = Now.getMinutes();
+                            if(Now.getMinutes()<10) document.querySelector("#minute").innerHTML ='0'+ Now.getMinutes();
+                            if(Now.getSeconds() %2 ==0)document.querySelector("#second").style.color = "white";
+                            else document.querySelector("#second").style.color = "black";
+                            setTimeout(TimeNowAdmin ,1000);    
+                        }
+                    </script>
+                </div>
+                <div id="product-admin" class="option active">
+                    <i class="fas fa-cube"></i>
+                    <label>Sản Phẩm</label>
+                </div>
+                <div id="chart" class="option">
+                    <i class="fas fa-chart-pie"></i>
+                    <label>Thống kê</label>
+                </div>
+                <div id="users" class="option">
+                    <i class="fas fa-users"></i>
+                    <label>Khách hàng</label>
+                </div>
+                <div id="cart-admin" class="option">
+                    <i class="fas fa-cart-arrow-down"></i>
+                    <label>Đơn hàng</label>
+                </div>
+            </div>
+            <div class="right">
+                <div class="show" id="edit-product">
+                    <a href="#">
+                        <!-- <div id="add-product" class="frames-product" onclick="showAddProduct(-1)">
+                            <i class="fas fa-plus-square"></i>
+                        </div> -->
+                    </a>
+                    <div id="all-edit-product">
+                        <div class="frames-product">
+                            <div class="fram-img-product">
+            
+                            </div>
+                            <div class="content-product">
+                                <div class="name-product">
+                                    Xiaomi redmi note 8
+                                </div>
+                                <div class="sale-product">
+                                    3.100.000
+                                </div>
+                                <div class="money-product">
+                                    3.900.000
+                                </div>
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </div>
+                        <script>outIndex();</script>
+                    </div>
+                </div>
+                <div class="show" id="chart-sale">
+
+                </div>
+                <div class="show" id="manager-users">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
+<script>
+    var getUserFromStorage = localStorage.getItem("userNow");
+    console.log(getUserFromStorage);
+    if(getUserFromStorage !="admin"){
+        document.getElementById("section").innerHTML = "<h1 id='test-admin'>BẠN CẦN ĐĂNG NHẬP VỚI QUYỀN <a href='index.html'>ADMIN</a> THÌ MỚI ĐƯỢC SỬ DỤNG CHỨC NĂNG NÀY <a href='index.html'>Quay Lại Trang Chủ</a></h1>";
+    }
+    
+</script>
+
+</html>

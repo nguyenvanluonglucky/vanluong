@@ -1,0 +1,269 @@
+section{
+    margin-top: 70px;
+    width: 100%;
+    min-height: 500px;
+}
+body{
+    /* background: url(../img/login/bg-cart.jpg); */
+    
+    background-size: "100%";
+    
+}
+.all{
+    width: 800px;
+    margin: 0 auto;
+    min-height: 400px;
+}
+.frame-all{
+    width: 820px;
+    margin: 0 auto;
+    min-height: 400px;
+
+    float: left;
+    /* border-radius: 30px; */
+    background-color: white;
+    
+}
+.filter{
+    width: 400px;
+    display: flex;
+    height: 45px;
+    margin-left: 40px;
+    text-align: center;
+    padding: 5px 0px;
+}
+.filter input{
+    width: 150px;
+    height: 30px;
+    margin-left: 30px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ec105a;
+    padding-left: 10px;
+}
+.filter input:focus{
+    border-bottom: 2px solid #ec105a;
+}
+.product-cart{
+    width: 500px;
+    min-height: 500px;
+    padding: 10px;
+    float: left;
+}
+
+.product-cart h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 30px;
+    background-color: white;
+    color: red;
+}
+.frame-checbox{
+    width: 10px;
+    height: 100%;
+    float: left;
+    padding-top: 30px;
+    position: relative;
+}
+.frame-checbox input{
+    position: relative;
+    -webkit-appearance: none;
+    background-color: rgb(87, 87, 87);
+    outline: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+}
+.frame-checbox input:hover{
+    background-color: rgb(255, 106, 130);
+}
+.frame-checbox input:checked{
+    background-color: rgb(0, 255, 0);
+}
+.frame-checbox input::before{
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 0px;
+    height: 0px;
+    border-radius: 50%;
+    width: 0px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgb(214, 214, 214);
+    transition: 1s;
+    transform: translate(-30px);
+}
+.frame-checbox input:checked::before{
+    transition: 1s;
+    height: 12px;
+    width: 12px;
+    transform: translate(0px);
+    background-color: rgb(255, 119, 142);
+}
+.fram-product{
+    width: 450px;
+    height: 100px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 3px;
+    box-shadow: 0px 3px 5px rgb(192, 192, 192);
+    position: relative;
+    background: white;
+    z-index: 1;
+}
+.fram-product::before{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 0%;
+    height: 2%;
+    z-index: -2;
+    background-color: #ec105a;
+    transition: 1s;
+}
+.fram-product:hover::before{
+    width: 100%;
+
+}
+.frame-img{
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background-image: url("https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg");
+    background-size: 100%;
+    float: left;
+}
+.frame-name{
+    width: 200px;
+    min-height: 100px ;
+    float: left;
+    padding: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.name-product{
+    width: 100%;
+    height: 50px;
+}
+.frame-remove{
+    width: 20%;
+    margin: 0px 10%;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: black;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.frame-remove:hover{
+    color : red
+}
+.frame-number-money{
+    width: 120px;
+    height: 100%;
+    float: left;
+    padding: 0px 0px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.frame-sl{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.frame-number-money input{
+    width: 40px;
+    height: 25px;
+    outline: none;
+    border: none;
+    padding-left: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    text-align: center;
+}
+.reduction{
+    width: 25px;
+    height: 25px;
+    float: left;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.frame-number-money .sale{
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+.frame-number-money .money{
+    color: rgb(136, 121, 121);
+    font-size: 10px;
+    text-decoration: line-through;
+}
+.input-info-customer{
+    float: left;
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    border-left: 2px solid rgb(0, 0, 0);
+}
+.input-info{
+    width: 270px;
+    border-bottom: 2px solid black;
+    float: left;
+}
+.input-info svg{
+    float: left;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.input-info-customer input{
+    margin-top: 10px;
+    width: 230px;
+    height: 40px;
+    float: right;
+    outline: none;
+    border: none;
+    background : none;
+}
+.ERROR{
+    float: left;
+    color: red;
+    font-size: 12px;
+    padding: 5px 0px;
+}
+
+.input-info-customer button{
+    width: 200px;
+    height: 40px;
+    margin: 20px 30px;
+    background-color: red;
+    border: none;
+    outline: none;
+    color : white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.input-info-customer button:hover{
+    background-color: rgb(207, 0, 0);
+}
+#sum-cart{
+    padding-top: 20px;
+    height: 40px;
+    width: 100%;
+    clear: both;
+    color: rgb(41, 41, 41);
+}
+#sum-money{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: red;
+}

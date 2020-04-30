@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Js/font-all.js"></script>
+    <link rel="stylesheet" href="css/menu-footer.css">
+    <link rel="stylesheet" href="css/account.css">
+    
+    <!-- <link rel="stylesheet" href="css/menu-footer.css"> -->
+    <title>ĐĂNG XUẤT</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <a href="index.html">
+                <div class="logo">
+                    <img src="img/home/logo.png" alt="">
+                </div>
+            </a>
+            <div class="search">
+                <input type="text" placeholder="search....">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="sign-up-login">
+                <i class="fas fa-sign-out-alt" id="icon-ac-logout" onclick="logout()"></i>
+                <a href="account.html">
+                    <i class="fas fa-user-circle" id="icon-ac-login"></i>
+                    
+                    <p id="show-user-on-menu">Tài Khoản</p>
+                </a>
+            </div>
+            <div class="cart">
+                <a href="cart.html">
+                    <div class="cart-menu">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div id="sl-on-menu">0</div>
+                    </div>
+                <p>Giỏ Hàng </p>
+                </a>
+            </div>
+        </div>
+        <div class="full-container">
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="li-of-sub-menu">
+                        <a href="#" >Sản Phẩm</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="#">Áo</a></li>
+                                <li><a href="#">Đầm</a></li>
+                                <li><a href="#">Chân Váy</a></li>
+                                <li><a href="#">Quần</a></li>
+                                <li><a href="#">Phụ Kiện</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="li-of-sub-menu">
+                        <a href="#">Giới Thiệu</a>
+                        <div class="sub-menu sub-menu2" >
+                            <h2>Trang Giỏ hàng</h2>
+                            <p>-có tìm kiếm sản phẩm trong khoảng giá ...sản phẩm nào phù hợp sẽ có background là màu xanh</p>
+                            <p>-có check box để hiển thị sản phẩm muốn mua, mặc định được tích sẵn</p>
+                            <p>-Mọi thông tin sản phẩm được thay đổi khi có thao tác tác động lên chúng</p>
+                            <p>-Phần nhập thông tin khách hàng sẽ được tự điền khi có tài khoản đang đăng nhập</p>
+                            <p>-Mọi thông tin mua hàng phải được điền trước khi mua</p>
+                            <p>-Sau khi mua giỏ hàng sẽ trống toàn bộ</p>
+
+                        </div>
+                    </li>
+                    <li><a href="cart.html">Giỏ Hàng</a></li>
+                    <li><a href="account.html">Đăng Nhập</a></li>
+                    <li><a href="admin.html">Admins</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <section>
+        <div class="all ">
+            <div class="all-frame-sign-up">
+                <div class="option-sign-up">
+                    <button id="option-login" onclick="optionLogin_Sign(1,2)">Đăng Nhập</button>
+                    <button id="option-sign-up" onclick="optionLogin_Sign(2,1)">Đăng Kí </button>
+                </div>
+                <div class="form-sign-up">
+                    <div class="input-sign">
+                        <i class="fas fa-user icon-sign-up"></i>
+                        <input type="text" placeholder="Tên đăng nhập" id="user-sign" class="in-sign">
+                    </div>
+
+                    <div class="input-sign">
+                        <i class="far fa-user icon-sign-up"></i>
+                        <input type="text" placeholder="Nhập họ và tên" id="name-sign" class="in-sign">
+                    </div>
+
+                    <div class="input-sign">
+                        <i class="fas fa-unlock icon-sign-up"></i>
+                        <input type="text" placeholder="Tạo mật khẩu" id="pass-sign" class="in-sign">
+                    </div>
+
+                    <div class="input-sign">
+                        <i class="fas fa-lock icon-sign-up"></i>
+                        <input type="text" placeholder="Nhập lại mật khẩu" id="again-pass-sign" class="in-sign">
+                    </div>
+
+                    <div class="input-sign">
+                        <i class="fas fa-map-marker-alt icon-sign-up"></i>
+                        <input type="text" placeholder="Địa chỉ" id="local-sign" class="in-sign">
+                    </div>
+
+                    <div class="input-sign">
+                        <i class="fas fa-phone-square-alt icon-sign-up"></i>
+                        <input type="text" placeholder="Phone" id="phone-sign" class="in-sign">
+                    </div>
+
+                    <div class="input-sign">
+                        <i class="far fa-envelope icon-sign-up"></i>
+                        <input type="text" placeholder="Email" id="email-sign" class="in-sign">
+                    </div>
+
+                    <button onclick="confirmSignUP()">
+                        Đăng kí
+                    </button>
+
+                </div>
+
+            </div>
+            <div class="all-frame-log-in" id="fail-login">
+                <div class="option-login">
+                    <button id="option-login" onclick="optionLogin_Sign(1,2)">Đăng Nhập</button>
+                    <button id="option-sign-up" onclick="optionLogin_Sign(2,1)">Đăng Kí </button>
+                </div>
+                <div class="frame-input">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="login" id="user" autocomplete="off" placeholder="Tên đăng nhập">
+
+                </div>
+                <div class="frame-input">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="login" id="pass" placeholder="Mật khẩu">
+                </div>
+                <div>
+                    <a href="#">
+                        <button type="submit" onclick="login()" class="buttonLogin">
+                            Đăng Nhập
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer>
+        <div class="footer">
+            <div class="logo-footer">
+                <img src="img/home/logo-light-footer.png" alt="">
+            </div>
+            <div class="info-footer">
+                <div class="info">
+                    <h2>Giới thiệu</h2>
+                    <div class="content-introduce">
+                        Chúng tôi luôn mang đến cho bạn những sản phẩm với giá và chất lượng tốt nhất,
+                        miễn là bạn thích chúng tôi sẵn sàng phục vụ bạn, với tiêu chí về uy tín và chất lượng 
+                        sản phẩm được đưa lên hàng đầu !!
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Tổng Quan</h2>
+                    <div class="content-introduce">
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Theo dõi đơn hàng</a></li>
+                            <li><a href="#">Đơn hàng trả</a></li>
+                            <li><a href="#">Công việc</a></li>
+                            <li><a href="#">Đang chuyển hàng</a></li>
+                            <li><a href="#">Bài viết</a></li>
+                            <li><a href="#">Đối tác</a></li>
+                            <li><a href="#">Hỗ trợ</a></li>
+                            <li><a href="#">Điều Khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Bài Viết</h2>
+                    <div class="blog">
+                        <div class="frame-img-blog">
+                            <img src="img/home/blog-footer.jpg" alt="">
+                        </div>
+                        <div class="content-blog">
+                            <h3>Phối đồ</h3>
+                            <p>đọc thêm</p>
+                        </div>
+                    </div>
+                    <div class="blog">
+                        <div class="frame-img-blog">
+                            <img src="img/home/blog-footer2.jpg" alt="">
+                        </div>
+                        <div class="content-blog">
+                            <h3>Thịnh hành</h3>
+                            <p>đọc thêm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Thông tin</h2>
+                    <div class="info-other">
+                        <i class="fas fa-home"></i>
+                        <p>FPoly Tây Nguyên</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>27 Nguyễn Tất Thành, TP BMT</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>0393457144</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="far fa-envelope"></i>
+                        <p>luongnvpk01506@fpt.edu.vn</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="social-footer">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-google-plus-g"></i>
+                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fas fa-abacus"></i>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="js/support.js"></script>
+<script src="js/menu.js"></script>
+<script src="Js/sign-up.js"></script>
+<script src="Js/login.js"></script>
+
+</html>

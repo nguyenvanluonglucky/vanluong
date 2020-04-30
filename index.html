@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/menu-footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/font-all.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <header>
+        <div class="header-top">
+            <a href="index.html">
+                <div class="logo">
+                    <img src="img/home/logo.png" alt="">
+                </div>
+            </a>
+            <div class="search">
+                <input type="text" placeholder="search....">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="sign-up-login">
+                <i class="fas fa-sign-out-alt" id="icon-ac-logout" onclick="logout()"></i>
+                <a href="account.html">
+                    <i class="fas fa-user-circle" id="icon-ac-login"></i>
+                    
+                    <p id="show-user-on-menu">Tài Khoản</p>
+                </a>
+            </div>
+            <div class="cart">
+                <a href="cart.html">
+                    <div class="cart-menu">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div id="sl-on-menu">0</div>
+                    </div>
+                <p>Giỏ Hàng </p>
+                </a>
+            </div>
+        </div>
+        <div class="full-container">
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="li-of-sub-menu">
+                        <a href="#" >Sản Phẩm</a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li><a href="#">Áo</a></li>
+                                <li><a href="#">Đầm</a></li>
+                                <li><a href="#">Chân Váy</a></li>
+                                <li><a href="#">Quần</a></li>
+                                <li><a href="#">Phụ Kiện</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="li-of-sub-menu">
+                        <a href="#">Giới Thiệu</a>
+                        <div class="sub-menu sub-menu2" >
+                            <h2>Trang chủ</h2>
+                            <h4>Menu</h4>
+                            <p>-sẽ hiện thị tên đăng nhập khi người dùng đăng nhập vào</p>
+                            <p>Hiển thị số lượng sản phẩm có trong giỏ hàng</p>
+                            <h4>Slider</h4>
+                            <h5>slider 1</h5>
+                            <p>Slider tự động chuyển động</p>
+                            <p>-Với Slider khi ta rê chuột vào thì nó lập tức slider sẽ ngưng tự chuyên động</p>
+                            <p>-Khi ta rê chuột ra khỏi slider thì slider sẽ tiếp tục chạy tự động</p>
+                            <p>-Slider còn có nút button lùi tới</p>
+                            <p>-Thanh di chuyển phía dưới sẽ được chạy phụ hợp với hình ảnh tương ứng với slider và có thể điều chỉnh tại đó</p>
+                            <p>Được viết trên ý tưởng display none và block</p>
+                            <h5>Slider 2</h5>
+                            <p>được viết trên ý tưởng kết hợp overflow và transfrom strale</p>
+                            <h4>Chức Năng Lọc Sản Phẩm</h4>
+                            <p>Lọc theo kiểu sản phẩm (váy , áo , khác )</p>
+                            <p>Lọc theo giá sản phẩm ,theo tên sản phẩm</p>
+                            <p>Có thể kết hợp giữa 2 kiểu lọc trên</p>
+                            <br>
+                            <h4>Sản Phẩm</h4>
+                            <p>Đối với sản phẩm mới : sẽ lấy 7 sản phẩm đầu tiên trong danh sách để hiển thị</p>
+                            <h4>Load more</h4>
+                            <p>Hiển thị thêm danh sách sản phẩm , mỗi lần nhấn hiển thị 4 sản phẩm sẽ được tiếp tục đưa ra</p>
+                            <p>-Có hiệu ứng bay vào giỏ hàng</p>
+
+                        </div>
+                    </li>
+                    <li><a href="cart.html">Giỏ Hàng</a></li>
+                    <li><a href="account.html">Đăng Nhập</a></li>
+                    <li><a href="admin.html">Admins</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slider">
+            <div class="frame-slider">
+                <div class="img-slider">
+                    <img src="img/home/slider1.jpg" alt="">
+                </div>
+                <div class="content-slider">
+                    <h2>Đẹp hơn ngày mới !!</h2>
+                    <h1>Tại sao không ??</h1>
+                    <p>
+                        Hãy khoác lên mình nhưng bộ đồ cảm thấy đẹp nhất,<br> đi ra đường
+                        dạo phố ,mọi ánh mắt sẽ nhìn vào vẻ đẹp <br> quyến rủ của bạn, 
+                        hãy tin tôi đi
+                    </p>
+                </div>
+            </div>
+            <div class="frame-slider">
+                <div class="img-slider">
+                    <img src="img/home/slider2.jpg" alt="">
+                </div>
+                <div class="content-slider">
+                    <h2>Đẹp hơn ngày mới !!</h2>
+                    <h1>Tại sao không ??</h1>
+                    <p>
+                        Hãy khoác lên mình nhưng bộ đồ cảm thấy đẹp nhất,<br> đi ra đường
+                        dạo phố ,mọi ánh mắt sẽ nhìn vào vẻ đẹp <br> quyến rủ của bạn, 
+                        hãy tin tôi đi
+                    </p>
+                </div>
+            </div>
+            <button class="next-slider" onclick="onclickButtonSlider(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="previous-slider" onclick="onclickButtonSlider(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <input type="range" class="option-slider" id="range-slider" onchange="changeSliderWithRange()">
+        </div>
+
+        <div class="promotion">
+            <div class="promotion-item">FAST SECURE PAYMENTS</div>
+            <div class="promotion-item active">PREMIUM PRODUCTS</div>
+            <div class="promotion-item">FREE & FAST DELIVERY</div>
+        </div>
+    </header>
+    <section>
+        <div class="new-product">
+            <h1>Sản Phẩm Mới</h1>
+            <div class="slider-new-product" >
+                <div id="slider-new-product">
+
+                </div>
+                <button class="next-slider" onclick="NextAndPrevious(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="previous-slider" onclick="NextAndPrevious(-1)">
+                    <i class="fas fa-chevron-left" ></i>
+                </button>
+
+            </div>
+        </div>
+        
+        <div class="product-other">
+            <h1>Sản Phẩm</h1>
+            <div class="filter-product">
+                <div class="future-filter" onclick="filterProduct('all')">
+                    Tất Cả
+                </div>
+                <div class="future-filter" onclick="filterProduct('skirt')">
+                    Váy
+                </div>
+                <div class="future-filter" onclick="filterProduct('shirt')">
+                    Áo
+                </div>
+                <div class="future-filter" onclick="filterProduct('other')">
+                    Khác
+                </div>
+                <div class="future-filter" onclick="sortProduct('0-9')">
+                    Giá Tăng Dần
+                </div>
+                <div class="future-filter" onclick="sortProduct('9-0')">
+                    Giá Giảm Dần
+                </div>
+                <div class="future-filter" onclick="sortProduct('az')">
+                    A-Z
+                </div>
+                <div class="future-filter" onclick="sortProduct('za')">
+                    Z-A
+                </div>
+            </div>  
+            <div class="all-product" id="frame-full">
+
+            </div>
+            <div class="load-more" onclick="loadMore()">
+                Xem Thêm
+            </div>
+            <div class="adSense1">
+                <div class="content-ad1">
+                    <h3>MẶC LÀM SAO CHO ĐẸP</h3>
+                    <h1>CHƯA BIẾT Ư !!</h1>
+                    <button>TÌM HIỂU NGAY</button>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <footer>
+        <div class="footer">
+            <div class="logo-footer">
+                <img src="img/home/logo-light-footer.png" alt="">
+            </div>
+            <div class="info-footer">
+                <div class="info">
+                    <h2>Giới thiệu</h2>
+                    <div class="content-introduce">
+                        Chúng tôi luôn mang đến cho bạn những sản phẩm với giá và chất lượng tốt nhất,
+                        miễn là bạn thích chúng tôi sẵn sàng phục vụ bạn, với tiêu chí về uy tín và chất lượng 
+                        sản phẩm được đưa lên hàng đầu !!
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Tổng Quan</h2>
+                    <div class="content-introduce">
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Theo dõi đơn hàng</a></li>
+                            <li><a href="#">Đơn hàng trả</a></li>
+                            <li><a href="#">Công việc</a></li>
+                            <li><a href="#">Đang chuyển hàng</a></li>
+                            <li><a href="#">Bài viết</a></li>
+                            <li><a href="#">Đối tác</a></li>
+                            <li><a href="#">Hỗ trợ</a></li>
+                            <li><a href="#">Điều Khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Bài Viết</h2>
+                    <div class="blog">
+                        <div class="frame-img-blog">
+                            <img src="img/home/blog-footer.jpg" alt="">
+                        </div>
+                        <div class="content-blog">
+                            <h3>Phối đồ</h3>
+                            <p>đọc thêm</p>
+                        </div>
+                    </div>
+                    <div class="blog">
+                        <div class="frame-img-blog">
+                            <img src="img/home/blog-footer2.jpg" alt="">
+                        </div>
+                        <div class="content-blog">
+                            <h3>Thịnh hành</h3>
+                            <p>đọc thêm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Thông tin</h2>
+                    <div class="info-other">
+                        <i class="fas fa-home"></i>
+                        <p>FPoly Tây Nguyên</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>27 Nguyễn Tất Thành, TP BMT</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>0393457144</p>
+                    </div>
+                    <div class="info-other">
+                        <i class="far fa-envelope"></i>
+                        <p>luongnvpk01506@fpt.edu.vn</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="social-footer">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-google-plus-g"></i>
+                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fas fa-abacus"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="js/menu.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/support.js"></script>
+<script src="js/outPutProduct.js"></script>
+<script>outIndex();</script>
+<script src="js/sliderNewProduct.js"></script>
+
+</html>
