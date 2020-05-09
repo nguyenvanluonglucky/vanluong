@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .frame-img img{
+        height: 200px;
+        float: left;
+    }
+</style>
+<body>
+    <div class="frame-img">
+        
+    </div>
+</body>
+<script>
+    //https://iap.poly.edu.vn/user/pk/PK01506.jpg
+    var getNode = document.querySelector(".frame-img");
+    //lấy học sinh từ 1000 đến 2000
+    var HMTL = ""
+    for (let i = 1; i <= 99; i++) {
+        HMTL  += '<img src="https://iap.poly.edu.vn/user/pk/PK000'+i+'.jpg" alt="">';  
+        HMTL  += '<img src="https://iap.poly.edu.vn/user/pk/PK000'+i+'.png" alt="">'; 
+    }
+    for (let i = 100; i <= 999; i++) {
+        HMTL  += '<img src="https://iap.poly.edu.vn/user/pk/PK00'+i+'.jpg" alt="">';  
+        HMTL  += '<img src="https://iap.poly.edu.vn/user/pk/PK00'+i+'.png" alt="">'; 
+    }
+    for (let i = 1000; i < 2000; i++) {
+        HMTL  += '<img src="https://iap.poly.edu.vn/user/pk/PK0'+i+'.jpg" alt="">';  
+        HMTL  += '<img src="https://iap.poly.edu.vn/user/pk/PK0'+i+'.png" alt="">';
+    }
+    console.log(getNode);
+    getNode.innerHTML = HMTL;
+</script>
+</html>

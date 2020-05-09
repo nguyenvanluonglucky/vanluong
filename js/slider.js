@@ -1,6 +1,12 @@
 var slider = document.querySelectorAll(".frame-slider");
 var timeSliderAuto = 4000;
 var countSlider = 0;
+createAfterOption();
+function createAfterOption(){
+    for (let i = 0; i < slider.length-1; i++) {
+        document.querySelector(".frame-optionslider").innerHTML += '<div style="width: '+100/slider.length+'%;"></div>'; 
+    }
+}
 function hiddenSlider(){
     for (let i = 0; i < slider.length; i++) {
         slider[i].style.display = "none";

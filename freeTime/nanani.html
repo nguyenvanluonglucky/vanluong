@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        overflow: hidden;
+    }
+    .test{
+        overflow: hidden;
+        height: 100vh;
+        width: 100vmax;
+    }
+    .col{
+        float: left;
+        width: 20px;
+        min-height: 100vh;
+        color: rgb(0, 255, 0);
+        background-color: black;
+    }
+</style>
+<body>
+    <div id="test">
+        
+    </div>
+</body>
+<script>
+    createNode();
+    function createNode(){
+        console.log(window.innerWidth/20);
+        for (let i = 0; i < window.innerWidth/20-3; i++) {
+            document.getElementById("test").innerHTML += "<div class='col'><div>"
+        }
+    }
+
+    function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 1; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length)) + " ";
+
+     return text;
+    }   
+    addTextToiDiv();
+    var valueTranslate = 0;
+    var count= 0;
+    function addTextToiDiv(){
+        var listDiv = document.querySelectorAll(".col");
+        for (let i = 0; i < listDiv.length; i++) {
+            listDiv[i].innerHTML += makeid();
+        }
+        setTimeout(() => {
+            addTextToiDiv();
+            
+            console.log("translate("+-valueTranslate+"px)");
+            if(count > 10){
+                valueTranslate += 13;
+                var listNode = document.querySelectorAll(".col");
+                for (let i = 0; i < listNode.length; i++) {
+                    listNode[i].style.transform = "translateY("+-valueTranslate+"px)";
+                    
+                }
+            }
+            count ++;
+        }, 100);
+    }
+</script>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    #khungGame {
+        width: 630px;
+        height: 630px;
+        margin: 0 auto;
+        margin-top: 50px;
+        position: relative;
+        z-index: -1;
+        background-color: rgba(218, 218, 218, 0.719);
+        padding: 30px;
+    }
+
+    button {
+        width: 200px;
+        height: 200px;
+        margin: 2px;
+        float: left;
+        font-size: 180px;
+        font-weight: bold;
+        text-align: center;
+        background-color: orange;
+        color: white;
+    }
+
+    #thongBao {
+        position: absolute;
+        top: 250px;
+        left: 0px;
+        height: 200px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: block;
+        border-radius: 20px;
+        font-size: 40px;
+        text-align: center;
+        padding: 30px;
+        box-sizing: border-box;
+        font-weight: bold;
+    }
+
+    .luaChon {
+        width: 300px;
+        height: 50px;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        font-size: 20px;
+        background-color: orange;
+        position: absolute;
+        top: 350px;
+        left: 50%;
+    }
+
+    .luaChon:hover {
+        background-color: chocolate;
+    }
+
+    #playWithComputer {
+        left: 30%;
+    }
+
+    .bg {
+        background-image: url(gb.jpg);
+        width: 100%;
+        height: 800px;
+        background-size: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: -2;
+        filter: blur(3px);
+    }
+
+    #diemPlayer1 {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 200px;
+        left: 110px;
+        background-color: rgba(151, 151, 151, 0.837);
+        border-radius: 25px;
+        padding: 30px;
+        box-sizing: border-box;
+        font-size: 50px;
+        text-align: center;
+
+    }
+
+    #diemPlayer2 {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 200px;
+        right: 110px;
+        background-color: rgba(151, 151, 151, 0.837);
+        border-radius: 25px;
+        padding: 30px;
+        box-sizing: border-box;
+        font-size: 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="bg">
+    </div>
+    <div id="diemPlayer1"></div>
+    <div id="diemPlayer2"></div>
+    <div id="khungGame">
+        <button id="1" onclick="gameOX(1)"></button>
+        <button id="2" onclick="gameOX(2)"></button>
+        <button id="3" onclick="gameOX(3)"></button>
+        <button id="4" onclick="gameOX(4)"></button>
+        <button id="5" onclick="gameOX(5)"></button>
+        <button id="6" onclick="gameOX(6)"></button>
+        <button id="7" onclick="gameOX(7)"></button>
+        <button id="8" onclick="gameOX(8)"></button>
+        <button id="9" onclick="gameOX(9)"></button>
+    </div>
+
+    <div id="thongBao">CHÀO MỪNG BẠN ĐẾN VỚI GAME CARO 9 Ô CỦA NGUYỄN VĂN LƯƠNG</div>
+    <button class="luaChon" id="start" onclick="resetGame(0); gameOX()">Bắt đầu chơi</button>
+    <button class="luaChon" id="playWithComputer" onclick="resetGame(1); gameOX()">Đánh với máy</button>
+    <script>
+        var nguoiThang = 0;
+        var luaChon = 0, a = 0, lanDanh = 1;
+        var xacNhanNguoiChoiThang = false;
+        var xacNhanHoa = false;
+        var testNguoiChoi = 1;
+        var diemNguoiChoi1 = 0;
+        var diemNguoiChoi2 = 0;
+        var dataOX = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        var findID = new Array();
+        var luuCachChoi = 10;
+        findID[0] = document.getElementById("1");
+        findID[1] = document.getElementById("1");
+        findID[2] = document.getElementById("2");
+        findID[3] = document.getElementById("3");
+        findID[4] = document.getElementById("4");
+        findID[5] = document.getElementById("5");
+        findID[6] = document.getElementById("6");
+        findID[7] = document.getElementById("7");
+        findID[8] = document.getElementById("8");
+        findID[9] = document.getElementById("9");
+        console.log(findID[1]);
+
+        function resetGame(chonCachChoi) {
+            if (chonCachChoi != luuCachChoi) {
+                luuCachChoi = chonCachChoi;
+                diemNguoiChoi1 = 0;
+                diemNguoiChoi2 = 0;
+                nguoiThang = 0;
+            }
+            if (nguoiThang == 1) {
+                diemNguoiChoi1++;
+            }
+            if (nguoiThang == 2) {
+                diemNguoiChoi2++;
+            }
+            if (luuCachChoi == 1) {
+                document.getElementById("diemPlayer1").innerHTML = "<br>Điểm Của Bạn <br>" + diemNguoiChoi1;
+                document.getElementById("diemPlayer2").innerHTML = "<br>Điểm Của Máy <br>" + diemNguoiChoi2;
+            }
+            if (luuCachChoi == 0) {
+                document.getElementById("diemPlayer1").innerHTML = "<br>Điểm Player 1 <br>" + diemNguoiChoi1;
+                document.getElementById("diemPlayer2").innerHTML = "<br>Điểm Player 2 <br>" + diemNguoiChoi2;
+            }
+            nguoiThang = 0;
+            lanDanh = 0;
+            xacNhanNguoiChoiThang = false;
+            xacNhanHoa = false;
+            if (chonCachChoi == 1) {
+                luaChon = 1;
+            }
+            if (chonCachChoi == 0) {
+                luaChon = 0;
+            }
+            a = 0;
+            document.getElementById("playWithComputer").style.display = "none";
+            document.getElementById("start").style.display = "none";
+            document.getElementById("khungGame").style.zIndex = "1";
+            for (let i = 0; i < dataOX.length; i++) {
+                dataOX[i] = 0;
+            }
+            for (let i = 0; i < findID.length; i++) {
+                findID[i].innerHTML = "";
+            }
+            for (let i = 1; i <= 9; i++) {
+                findID[i].style.background = "rgb(225,225,225)";
+            }
+            testNguoiChoi = 1;
+        }
+        function gameOX(x) {
+            document.getElementById("start").style.display = "none";
+            document.getElementById("thongBao").style.display = "none";
+            document.getElementById("playWithComputer").style.display = "none";
+            playWithComputer
+            if (dataOX[x] == 0 & luaChon == 0) {
+                testNguoiChoi++;
+                if (testNguoiChoi % 2 == 0) {
+                    a = 1;
+                }
+                if (testNguoiChoi % 2 == 1) {
+                    a = 2;
+                }
+                dataOX[x] = a;
+                dienOXvaoButton();
+                testWinLoss();
+            }
+            //thuật toán đánh với máy
+
+            if (dataOX[x] == 0 & luaChon == 1) {
+                var testDanhChua = 0;
+                var testX = 0;
+                dataOX[x] = 1;
+                lanDanh++;
+                dienOXvaoButton();
+                testWinLoss();
+                if (xacNhanNguoiChoiThang == true || xacNhanHoa == true) {
+                    testDanhChua = 1;
+                }
+                //kích hoạt x
+                if (dataOX[5] == 0 & testDanhChua == 0) {
+                    dataOX[5] = 2;
+                    testDanhChua = 1;
+                }
+                // if (lanDanh == 2 & testDanhChua == 0) {
+                //     if (dataOX[4] == 1 & dataOX[8] == 1) {
+                //         dataOX[7] = 2;
+                //         testDanhChua = 1;
+                //     }
+                //     if (dataOX[6] == 1 & dataOX[8] == 1) {
+                //         dataOX[9] = 2;
+                //         testDanhChua = 1;
+                //     }
+                // }
+                if (testDanhChua == 0) {
+                    //thuật toán kiểm tra thử ở cột dọc có ô nào có 2 giá trị x hay không ...nếu có thì win luôn
+                    for (let i = 1; i <= 3; i++) {
+                        testX = 0;
+                        for (let j = i; j <= 9; j += 3) {
+                            if (dataOX[j] == 2) testX++;
+                        }
+                        if (testX == 2) {
+                            for (let e = i; e <= 9; e += 3) {
+                                if (dataOX[e] == 0) {
+                                    dataOX[e] = 2;
+                                    testDanhChua = 1;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    console.log("đã vào kiểm ra cột dọc");
+                }
+                if (testDanhChua == 0) {
+                    //thuật toán kiểm tra thử ở cột ngang có ô nào có 2 giá trị x hay không ...nếu có thì win luôn
+                    for (let i = 1; i <= 9; i += 3) {
+                        testX = 0;
+                        for (let j = i; j < i + 3; j++) {
+                            if (dataOX[j] == 2) testX++;
+                        }
+                        if (testX == 2) {
+                            for (let e = i; e < i + 3; e++) {
+                                if (dataOX[e] == 0) {
+                                    dataOX[e] = 2;
+                                    testDanhChua = 1;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    console.log("đã vào kiểm tra  ra cột ngang");
+                }
+                if (testDanhChua == 0) {
+                    testX = 0;
+                    //kiểm tra cột chéo1
+                    for (let i = 1; i <= 9; i += 4) {
+                        if (dataOX[i] == 2) testX++;
+                    }
+                    if (testX == 2) {
+                        for (let i = 1; i <= 9; i += 4) {
+                            if (dataOX[i] == 0) {
+                                dataOX[i] = 2;
+                                testDanhChua = 1;
+                            }
+                        }
+                    }
+                    console.log("đã vào kiểm tra ra cột chéo 1");
+                }
+                if (testDanhChua == 0) {
+                    testX = 0;
+                    //kiểm tra cột chéo2
+                    for (let i = 3; i <= 7; i += 2) {
+
+                        if (dataOX[i] == 2) testX++;
+                    }
+                    if (testX == 2) {
+                        for (let j = 3; j <= 7; j += 2) {
+                            if (dataOX[j] == 0) {
+                                dataOX[j] = 2;
+                                testDanhChua = 1;
+                            }
+                        }
+                    }
+                    console.log("đã vào kiểm tra  ra cột chéo 3");
+                }
+
+                //thuật toán chặn người chơi
+                if (testDanhChua == 0) {
+                    //kiêm tra hàng dọc người chơi có sắp thắng hay không
+                    for (let i = 1; i <= 3; i++) {
+                        testX = 0;
+                        for (let j = i; j <= 9; j += 3) {
+                            if (dataOX[j] == 1) testX++;
+                        }
+                        if (testX == 2) {
+                            for (let e = i; e <= 9; e += 3) {
+                                if (dataOX[e] == 0) {
+                                    dataOX[e] = 2;
+                                    testDanhChua = 1;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    console.log("đã vào kiểm tra chặn cột dọc người chơi");
+                }
+                if (testDanhChua == 0) {
+                    //kiêm tra cột ngang người chơi có sắp thắng hay không
+                    for (let i = 1; i <= 9; i += 3) {
+                        testX = 0;
+                        for (let j = i; j < i + 3; j++) {
+                            if (dataOX[j] == 1) testX++;
+                        }
+                        if (testX == 2) {
+                            for (let e = i; e < i + 3; e++) {
+                                if (dataOX[e] == 0) {
+                                    dataOX[e] = 2;
+                                    testDanhChua = 1;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    console.log("đã vào kiểm tra chặn cột ngang người chơi");
+                }
+                if (testDanhChua == 0) {
+                    testX = 0;
+                    //kiêm tra cột chéo 1 người chơi có sắp thắng hay không
+                    for (let i = 1; i <= 9; i += 4) {
+                        if (dataOX[i] == 1) testX++;
+                    }
+                    if (testX == 2) {
+                        for (let i = 1; i <= 9; i += 4) {
+                            if (dataOX[i] == 0) {
+                                dataOX[i] = 2;
+                                testDanhChua = 1;
+                            }
+                        }
+                    }
+                    console.log("đã vào kiểm tra chặn chéo 1 người chơi");
+                }
+                if (testDanhChua == 0) {
+                    testX = 0;
+                    //kiểm tra cột chéo 2 người chơi có sắp thắng hay không
+                    for (let i = 3; i <= 7; i += 2) {
+
+                        if (dataOX[i] == 1) testX++;
+                    }
+                    if (testX == 2) {
+                        for (let j = 3; j <= 7; j += 2) {
+                            if (dataOX[j] == 0) {
+                                dataOX[j] = 2;
+                                testDanhChua = 1;
+                            }
+                        }
+                    }
+                    console.log("đã vào kiểm tra chặn chéo 3 người chơi");
+                }
+                //kết thúc thuật toán chặn người chơi
+                //thuật toán tìm giao điểm đối phương
+                if(testDanhChua==0 & lanDanh==2){
+                    do{
+                        var randomX1 = Math.ceil(Math.random() * 8);
+                        if((dataOX[1]==1&dataOX[9]==1)||(dataOX[3]==1&dataOX[7]==1)){
+                            if (dataOX[randomX1] == 0 &(randomX1==2||randomX1==4||randomX1==6||randomX1==8)) {
+                                dataOX[randomX1] = 2;
+                                testDanhChua = 1;
+                                var nextRanDOm = 3;
+                                console.log("đã vào random1");
+                                break;
+                            }
+                        }
+                        else{
+                            break;
+                        }
+
+                    }while(true);
+                }
+                if(testDanhChua==0){
+                    var testDoc1 = false;
+                    var testDoc2 = false;
+                    var testNgang3 = false;
+                    var testNgang4 = false;
+                    var demO =0;
+                    var demOTrong =0;
+                    for (let j = 1; j <=7; j+=3) {
+                        if(dataOX[j]==0){
+                            demOTrong++;
+                        }
+                        if(dataOX[j]==1){
+                            demO++;
+                        }
+                    }
+                    if(demO==1&demOTrong==2){
+                        testDoc1=true;
+                    }
+                    demO =0;
+                    demOTrong =0;
+                    for (let j = 3; j <=9; j+=3) {
+                        if(dataOX[j]==0){
+                            demOTrong++;
+                        }
+                        if(dataOX[j]==1){
+                            demO++;
+                        }
+                    }
+                    if(demO==1&demOTrong==2){
+                        testDoc2=true;
+                    }
+                    
+                    //test ngang
+                    demO =0;
+                    demOTrong =0;
+                    for (let j = 1; j <=3; j++) {
+                        if(dataOX[j]==0){
+                            demOTrong++;
+                        }
+                        if(dataOX[j]==1){
+                            demO++;
+                        }
+                    }
+                    if(demO==1&demOTrong==2){
+                        testNgang3=true;
+                    }
+                    demO =0;
+                    demOTrong =0;
+                    for (let j = 7; j <=9; j++) {
+                        if(dataOX[j]==0){
+                            demOTrong++;
+                        }
+                        if(dataOX[j]==1){
+                            demO++;
+                        }
+                    }
+                    if(demO==1&demOTrong==2){
+                        testNgang4 = true;
+                    }
+                    console.log(testDoc1);
+                    console.log(testDoc2);
+                    console.log(testNgang3);
+                    console.log(testNgang4);
+                    //xét điều kiên
+                    if(testDoc1==true&testNgang3==true&testDanhChua==0){
+                        if(dataOX[1]==0){
+                            dataOX[1]=2;
+                            testDanhChua=1;
+                        }
+                    }
+                    if(testDoc1==true&testNgang4==true&testDanhChua==0){
+                        if(dataOX[7]==0){
+                            dataOX[7]=2;
+                            testDanhChua=1;
+                        }
+                    }
+                    if(testDoc2==true&testNgang3==true&testDanhChua==0){
+                        if(dataOX[3]==0){
+                            dataOX[3]=2;
+                            testDanhChua=1;
+                        }
+                    }
+                    if(testDoc2==true&testNgang4==true&testDanhChua==0){
+                        if(dataOX[9]==0){
+                            dataOX[9]=2;
+                            testDanhChua=1;
+                        }
+                    }
+                }
+                
+                
+                //kêt thúc thuật toán tìm giao điểm đối phương
+                //thuật toán kiểm tra hàng đó có nhiều ô trống hay không
+                // if (testDanhChua == 0) {
+                //     //kiêm tra hàng dọc có nhiều ô hay không
+                //     for (let i = 1; i <= 3; i++) {
+                //         testX = 0;
+                //         for (let j = i; j <= 9; j += 3) {
+                //             if (dataOX[j] == 0) testX++;
+                //         }
+                //         if (testX == 3) {
+                //             for (let e = i; e <= 9; e += 3) {
+                //                 if (dataOX[e] == 0) {
+                //                     dataOX[e] = 2;
+                //                     testDanhChua = 1;
+                //                     break;
+                //                 }
+                //             }
+                //             break;
+                //         }
+                //     }
+                //     console.log("đã vào kiểm tra chặn cột dọc có 3 ô trống không");
+                // }
+                // if (testDanhChua == 0) {
+                //     //kiêm tra cột ngang có nhiều ô hay không
+                //     for (let i = 1; i <= 9; i += 3) {
+                //         testX = 0;
+                //         for (let j = i; j < i + 3; j++) {
+                //             if (dataOX[j] == 0) testX++;
+                //         }
+                //         if (testX == 3) {
+                //             for (let e = i; e < i + 3; e++) {
+                //                 if (dataOX[e] == 0) {
+                //                     dataOX[e] = 2;
+                //                     testDanhChua = 1;
+                //                     break;
+                //                 }
+                //             }
+                //             break;
+                //         }
+                //     }
+                //     console.log("đã vào kiểm tra chặn cột ngang có 3 ô trống không");
+                // }
+                // if (testDanhChua == 0) {
+                //     testX = 0;
+                //     //kiêm tra cột chéo 1 có nhiều ô hay không
+                //     for (let i = 1; i <= 9; i += 4) {
+                //         if (dataOX[i] == 0) testX++;
+                //     }
+                //     if (testX == 3) {
+                //         for (let i = 1; i <= 9; i += 4) {
+                //             if (dataOX[i] == 0) {
+                //                 dataOX[i] = 2;
+                //                 testDanhChua = 1;
+                //             }
+                //         }
+                //     }
+                //     console.log("đã vào kiểm tra chặn chéo 1 có 3 ô trống không");
+                // }
+                // if (testDanhChua == 0) {
+                //     testX = 0;
+                //     //kiểm tra cột chéo 2 người chơi có nhiều ô hay không
+                //     for (let i = 3; i <= 7; i += 2) {
+                //         if (dataOX[i] == 0) testX++;
+                //     }
+                //     if (testX == 3) {
+                //         for (let j = 3; j <= 7; j += 2) {
+                //             if (dataOX[j] == 0) {
+                //                 dataOX[j] = 2;
+                //                 testDanhChua = 1;
+                //             }
+                //         }
+                //     }
+                //     console.log("đã vào kiểm tra chặn chéo 3 có 3 ô trống không ");
+                // }
+
+                //kết thúc thuật toán kiểm tra hàng đó có nhiều ô trống hay không
+                //random khôn 1
+                //Random khôn2
+                if (testDanhChua ==0) {
+                    do {
+                        var randomX = Math.ceil(Math.random() * 9);
+                        if (dataOX[randomX] == 0 &(randomX==1||randomX==3||randomX==7||randomX==9)) {
+                            dataOX[randomX] = 2;
+                            testDanhChua = 1;
+                            console.log("đã vào random");
+                            break;
+                        }
+                        if(dataOX[1]!=0&dataOX[3]!=0&dataOX[7]!=0&dataOX[9]!=0){
+                            break;
+                        }
+                    } while (true);
+                }
+                ///////////
+                if (testDanhChua == 0) {
+                    for (let i = 1; i <= 9; i++) {
+                        var saveI = i;
+                        if (dataOX[i] == 2 & testDanhChua == 0) {
+                            var saveI = i;
+                            if ((saveI == 2 || saveI == 8) & testDanhChua == 0) {
+                                saveI++;
+                                if (dataOX[saveI] == 0 & testDanhChua == 0) {
+                                    dataOX[saveI] = 2;
+                                    testDanhChua = 1;
+                                }
+                                saveI -= 2;
+                                if (dataOX[saveI] == 0 & testDanhChua == 0) {
+                                    dataOX[saveI] = 2;
+                                    testDanhChua = 1;
+                                }
+                            }
+                            var saveI = i;
+                            //
+                            if ((saveI == 4 || saveI == 6) & testDanhChua == 0) {
+                                saveI += 3;
+                                if (dataOX[saveI] == 0 & testDanhChua == 0) {
+                                    dataOX[saveI] = 2;
+                                    testDanhChua = 1;
+                                }
+                                saveI -= 6;
+                                if (dataOX[saveI] == 0 & testDanhChua == 0) {
+                                    dataOX[saveI] = 2;
+                                    testDanhChua = 1;
+                                }
+                            }
+                            var saveI = i;
+                            //
+                            if ((saveI == 1 || saveI == 7) & testDanhChua == 0) {
+                                saveI++;
+                                if (dataOX[saveI] == 0 & testDanhChua == 0) {
+                                    dataOX[saveI] = 2;
+                                    testDanhChua = 1;
+                                }
+                                saveI = 4;
+                                if (dataOX[saveI] == 0 & testDanhChua == 0) {
+                                    dataOX[saveI] = 2;
+                                    testDanhChua = 1;
+                                }
+                            }
+                            var saveI = i;
+                            //
+                            if ((saveI == 3 || saveI == 9) & testDanhChua == 0) {
+                                saveI--;
+                                if (dataOX[saveI] == 0 & testDanhChua == 0) {
+                                    dataOX[saveI] = 2;
+                                    testDanhChua = 1;
+                                }
+                                saveI = 6;
+                                if (dataOX[saveI] == 0 & testDanhChua == 0) {
+                                    dataOX[saveI] = 2;
+                                    testDanhChua = 1;
+                                }
+                            }
+                            var saveI = i;
+                            ///kết thúc kiêm tra
+                        }
+                    }
+                    console.log("đã vào if else SaveI");
+                }
+                
+                //random ngu
+                if (testDanhChua == 0) {
+                    do {
+                        var randomX = Math.ceil(Math.random() * 9);
+                        if (dataOX[randomX] == 0) {
+                            dataOX[randomX] = 2;
+                            testDanhChua = 1;
+                            console.log("đã vào random");
+                            break;
+                        }
+                    } while (true);
+                }
+                //kết thúc kết hoạt x
+            }
+            dienOXvaoButton();
+            testWinLoss();
+            //kết thúc thuật toán đánh với máy
+        }
+        function testWinLoss() {
+            var ketQua = false;
+            for (let i = 1; i <= 3; i++) {
+                if ((dataOX[i] == dataOX[i + 3]) & (dataOX[i + 3] == dataOX[i + 6])) {
+                    if (dataOX[i] != 0 & dataOX[i + 3] != 0 & dataOX[i + 6] != 0) {
+                        bgWin(i, i + 3, i + 6);
+                        ketQua = true;
+                        nguoiThang = dataOX[i];
+                    }
+                }
+            }
+            for (let i = 1; i <= 9; i += 3) {
+                if ((dataOX[i] == dataOX[i + 1]) & (dataOX[i + 1] == dataOX[i + 2])) {
+                    if (dataOX[i] != 0 & dataOX[i + 1] != 0 & dataOX[i + 2] != 0) {
+                        bgWin(i, i + 1, i + 2);
+                        ketQua = true;
+                        nguoiThang = dataOX[i];
+                    }
+                }
+            }
+            if ((dataOX[1] == dataOX[5]) & (dataOX[5] == dataOX[9])) {
+                if (dataOX[1] != 0 & dataOX[5] != 0 & dataOX[9] != 0) {
+                    bgWin(1, 5, 9);
+                    ketQua = true;
+                    nguoiThang = dataOX[5];
+                }
+            }
+            if ((dataOX[3] == dataOX[5]) & (dataOX[5] == dataOX[7])) {
+                if (dataOX[3] != 0 & dataOX[5] != 0 & dataOX[7] != 0) {
+                    bgWin(3, 5, 7);
+                    ketQua = true;
+                    nguoiThang = dataOX[3];
+                }
+            }
+            for (let i = 1; i <= dataOX.length; i++) {
+                if (i == dataOX.length) {
+                    document.getElementById("thongBao").style.display = "block";
+                    document.getElementById("thongBao").innerHTML = "Hai Bên Hòa";
+                    document.getElementById("start").style.display = "block";
+                    document.getElementById("start").innerHTML = "Chơi Lại";
+                    document.getElementById("playWithComputer").style.display = "block";
+                    document.getElementById("khungGame").style.zIndex = "-1";
+                    xacNhanHoa = true;
+                    break;
+                }
+                if (dataOX[i] == 0) {
+                    break;
+                }
+            }
+            if (ketQua == true) {
+                document.getElementById("thongBao").style.display = "block";
+                if (nguoiThang == 1) {
+                    document.getElementById("thongBao").innerHTML = "Người chơi O đã thắng";
+                }
+                else {
+                    document.getElementById("thongBao").innerHTML = "Người chơi X đã thắng";
+                }
+                if (luaChon == 1 & nguoiThang == 1) {
+                    document.getElementById("thongBao").innerHTML = "Bạn đã thắng";
+                    xacNhanNguoiChoiThang = true;
+                }
+                if (luaChon == 1 & nguoiThang == 2) {
+                    document.getElementById("thongBao").innerHTML = "Máy đã thắng";
+                    xacNhanNguoiChoiThang = false;
+                }
+                document.getElementById("start").style.display = "block";
+                document.getElementById("start").innerHTML = "Chơi Lại";
+                document.getElementById("khungGame").style.zIndex = "-1";
+                document.getElementById("playWithComputer").style.display = "block";
+                document.getElementById("playWithComputer").innerHTML = "Chơi lại với máy";
+            }
+        }
+        function dienOXvaoButton() {
+            for (let i = 1; i <= 9; i++) {
+                if (dataOX[i] == 1) {
+                    findID[i].innerHTML = "O";
+                    findID[i].style.color = "green";
+                }
+                if (dataOX[i] == 2) {
+                    findID[i].innerHTML = "X";
+                    findID[i].style.color = "red";
+                }
+            }
+        }
+        function bgWin(a, b, c) {
+            findID[a].style.background = "yellow";
+            findID[b].style.background = "yellow";
+            findID[c].style.background = "yellow";
+        }
+    </script>
+</body>
+
+</html>

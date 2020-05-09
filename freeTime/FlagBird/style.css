@@ -1,0 +1,62 @@
+#birdGame{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 300px;
+    left: 70px;
+    background-image: url("img/c1.png");
+    background-size: 100%;
+}
+
+#bgGame{
+    position: absolute;
+    z-index: 3;
+    top: 10px;
+    left: 150px;
+    width: 1200px;
+    height: 600px;
+    background-image: url('img/bg.jpg');
+    background-size: 100%;
+
+}
+.cot{
+    width: 50px;
+    height: 250px;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    background-image: url("img/cot.jpg");
+    background-size: cover;
+}
+.cotTren{
+    top: 0px;
+}
+.cotDuoi{
+    bottom: 0px;
+}
+#cot6,
+#cot62
+{
+    left: 100px;
+}
+#cot5,
+#cot52
+{
+    left: 100px;
+}
+#cot4,
+#cot42{
+    left: 280px;
+}
+#cot3,
+#cot32{
+    left: 560px;
+}
+#cot2,
+#cot22{
+    left: 840px;
+}
+#cot1,
+#cot12{
+    left: 1100px;
+}

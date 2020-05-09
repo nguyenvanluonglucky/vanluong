@@ -151,7 +151,7 @@ function filterProduct(type){
         
     }
     else {
-        resetFormatForFilter(0,7);
+        resetFormatForFilter(0,8);
         filterData = getData;
     }
     checkFrom(type);
